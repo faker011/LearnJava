@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 3.同步锁 1.5以后
  * 是一个显示锁，需要通过lock方法进行上锁
  * 通过unlock方法进行释放锁
- * 
+ *
  */
 
 public class TestLock {
