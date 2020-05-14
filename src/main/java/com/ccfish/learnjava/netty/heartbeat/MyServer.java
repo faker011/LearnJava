@@ -35,6 +35,7 @@ public class MyServer {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
                             // 加入一个netty提供的IdleStateHandler
+                            // IdleStateHandler 是netty提供的处理空闲状态的处理器
                             // 1. long readerIdleTime ： 表示多长时间没有读
                             // 2. long writerIdleTime :  表示多长时间没有写
                             // 3. long allIdleTime    :  表示没有读写
@@ -42,9 +43,10 @@ public class MyServer {
                             //    or both operation for a while
                             // 5. 当IdleStateEvent触发后，就会传递给管道的下一个handler去处理
                             //    通过调用（触发）下一个handler的userEventTriggered，在该方法中去处理IdleStateEvent（读空闲，写空闲，读写空闲）
+                            // 6.
                             pipeline.addLast(new IdleStateHandler(3, 5, 7, TimeUnit.SECONDS));
                             // 加入一个对空闲检测进一步处理的自定义handler
-                            pipeline.addLast(null);
+                            pipeline.addLast(new MyServerHandler());
 
                         }
                     });
