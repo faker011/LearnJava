@@ -46,11 +46,5 @@ public class LeetCode11 {
         return ans;
     }
 
-    public static void main(String[] args) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("123", "456");
-        System.out.println("123".hashCode() ^ "456".hashCode());
-        System.out.println(maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
-    }
 }
 
